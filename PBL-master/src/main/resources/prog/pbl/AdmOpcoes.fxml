@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prog.pbl.AdmOpcoes">
+   <children>
+      <Label layoutX="37.0" layoutY="31.0" prefHeight="49.0" prefWidth="300.0" text="Bem vindo!">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <VBox layoutX="5.0" layoutY="100.0" prefHeight="266.0" prefWidth="289.0">
+         <children>
+            <Button fx:id="cadastrarButton" maxWidth="150.0" mnemonicParsing="false" onAction="#cadastrarButtonAction" style="-fx-background-color: royalBlue;" text="Cadastrar">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="70.0" top="40.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="entrarButton" maxWidth="150.0" mnemonicParsing="false" onAction="#entrarButtonAction" style="-fx-background-color: royalBlue;" text="Entrar">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="70.0" top="70.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
