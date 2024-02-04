@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import prog.pbl.LibraryException.emprestimoException.EmprestimoException;
 import prog.pbl.model.usuarios.Leitor;
 
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class LeitorTela01 {
 
     @FXML
     void emprestimoButtonAction(ActionEvent event) {
-
+        this.inforEmprestimo("InforEmprestimos.fxml",leitor);
     }
 
     @FXML
@@ -72,5 +73,32 @@ public class LeitorTela01 {
 
     public void setLeitor(Leitor leitor) {
         this.leitor = leitor;
+    }
+
+    private void inforEmprestimo(String url,Leitor leitor){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            URL xmlURL = getClass().getResource(url);
+            loader.setLocation(xmlURL);
+
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent);
+
+            Stage stage = new Stage();
+            stage.setTitle("Bem vindo!");
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.initModality(Modality.APPLICATION_MODAL); // Define a modalidade da janela
+
+            InforEmprestimos controller = loader.getController();
+            controller.setStage(stage);
+            controller.setLeitor(leitor);
+
+            stage.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (EmprestimoException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

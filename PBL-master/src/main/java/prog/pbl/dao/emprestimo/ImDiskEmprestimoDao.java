@@ -101,7 +101,7 @@ public class ImDiskEmprestimoDao implements EmprestimoDao{
         List<Emprestimo> emprestimosUser = new LinkedList<Emprestimo>();
         for (Emprestimo emprestimo: emprestimos.values()
         ) {
-            if(emprestimo.getLeitor().getId() == id) {
+            if(emprestimo.getLeitor().getId().equals(id)) {
                 emprestimosUser.add(emprestimo);
             }
         }
