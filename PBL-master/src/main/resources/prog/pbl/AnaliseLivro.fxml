@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: royalblue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prog.pbl.AnaliseLivro">
    <children>
-      <Label layoutX="199.0" layoutY="33.0" text="Analise livro">
+      <Label layoutX="199.0" layoutY="14.0" text="Analise livro">
          <font>
             <Font size="33.0" />
          </font>
@@ -27,11 +26,12 @@
       <Label fx:id="editora" layoutX="274.0" layoutY="192.0" />
       <Label fx:id="isbn" layoutX="274.0" layoutY="164.0" prefHeight="3.0" prefWidth="36.0" />
       <Label fx:id="autor" layoutX="274.0" layoutY="139.0" />
-      <Label fx:id="categoria" layoutX="274.0" layoutY="108.0" prefHeight="3.0" prefWidth="36.0" />
+      <Label fx:id="categoria" layoutX="274.0" layoutY="108.0" prefHeight="16.0" prefWidth="136.0" />
       <Label fx:id="nome" layoutX="274.0" layoutY="83.0" />
-      <Button layoutX="423.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Button" />
+      <Button fx:id="pegarEmprestado" layoutX="382.0" layoutY="346.0" mnemonicParsing="false" onAction="#pegarEmprestadoButton" style="-fx-background-color: gray;" text="Pegar emprestado" />
       <Button fx:id="voltarButton" layoutX="103.0" layoutY="346.0" mnemonicParsing="false" onAction="#voltarButtonAction" style="-fx-background-color: gray;" text="Voltar" />
       <Label layoutX="71.0" layoutY="303.0" text="Quantidade de emprestimo" />
       <Label fx:id="quantidadeemprestimo" layoutX="274.0" layoutY="303.0" prefHeight="3.0" prefWidth="36.0" />
+      <Label fx:id="emprestado" layoutX="382.0" layoutY="330.0" />
    </children>
 </AnchorPane>

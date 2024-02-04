@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import prog.pbl.model.usuarios.Leitor;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,13 +31,14 @@ public class LeitorLogin {
 
     @FXML
     private TextField senhaText;
+    private Leitor leitor;
 
     @FXML
     void EntrarButtonAction(ActionEvent event) {
         try{
-            leitorDao.findLogin(this.loginText.getText(),this.senhaText.getText());
+            leitor = leitorDao.findLogin(this.loginText.getText(),this.senhaText.getText());
             System.out.println("Acesso liberado");
-            this.OpenLeitor("LeitorTela01.fxml");
+            this.OpenLeitor("LeitorTela01.fxml",leitor);
             this.cleanAll();
 
         }catch (Exception e){
@@ -45,7 +47,7 @@ public class LeitorLogin {
     }
 
 
-    private void OpenLeitor(String url){
+    private void OpenLeitor(String url,Leitor leitor){
         try{
             FXMLLoader loader = new FXMLLoader();
             URL xmlURL = getClass().getResource(url);
@@ -62,6 +64,7 @@ public class LeitorLogin {
 
             LeitorTela01 controller = loader.getController();
             controller.setStage(stage);
+            controller.setLeitor(leitor);
 
             stage.showAndWait();
         } catch (IOException e) {

@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import prog.pbl.LibraryException.estoqueExceptions.LivroException;
 import prog.pbl.model.estoque.Livro;
+import prog.pbl.model.usuarios.Leitor;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,6 +58,7 @@ public class Pesquisa {
     private TableView<Livro> tabela;
 
     private ObservableList<Livro> tabelaLivros;
+    private Leitor leitor;
 
     @FXML
     void initialize1() {
@@ -152,7 +154,7 @@ public class Pesquisa {
         int i = this.tabela.getSelectionModel().getSelectedIndex();
         if(i >= 0){
             try{
-                OpenAnaliseLivro(this.Analisador.get(i));
+                OpenAnaliseLivro(this.Analisador.get(i),leitor);
             }catch (Exception e){
                 this.naoencontrado();
             }
@@ -181,7 +183,7 @@ public class Pesquisa {
         this.initialize1();
     }
 
-    public void OpenAnaliseLivro(Livro livro){
+    public void OpenAnaliseLivro(Livro livro,Leitor leitor){
         try{
             FXMLLoader loader = new FXMLLoader();
             URL xmlURL = getClass().getResource("AnaliseLivro.fxml");
@@ -198,11 +200,16 @@ public class Pesquisa {
 
             AnaliseLivro controller = loader.getController();
             controller.setStage(stage);
-            controller.setLivro(livro);
+            controller.setLivro(livro,leitor);
+
 
             stage.showAndWait();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void setLeitor(Leitor leitor) {
+        this.leitor = leitor;
     }
 }
