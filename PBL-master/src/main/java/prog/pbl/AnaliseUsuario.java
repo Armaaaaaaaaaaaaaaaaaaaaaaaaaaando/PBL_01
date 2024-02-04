@@ -49,7 +49,7 @@ public class AnaliseUsuario {
     @FXML
     private TableView<Leitor> tabela;
     private ObservableList<Leitor> leitores;
-    private ImDiskLeitorDao leitorDao = new ImDiskLeitorDao();
+    public static ImDiskLeitorDao leitorDao = new ImDiskLeitorDao();
     private List<Leitor> lista = new LinkedList<>();
     private Stage stage;
 
