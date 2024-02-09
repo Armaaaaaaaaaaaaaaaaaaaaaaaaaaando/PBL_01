@@ -49,7 +49,7 @@
                   <Insets left="200.0" top="40.0" />
                </VBox.margin>
             </Button>
-            <Button maxWidth="200.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Unused">
+            <Button fx:id="relatorioButton" maxWidth="200.0" mnemonicParsing="false" onAction="#relatorioButtonAction" style="-fx-background-color: gray;" text="Relatorio">
                <font>
                   <Font size="15.0" />
                </font>

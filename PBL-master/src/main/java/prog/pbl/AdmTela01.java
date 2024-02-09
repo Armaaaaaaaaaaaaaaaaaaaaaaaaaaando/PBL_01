@@ -18,6 +18,8 @@ public class AdmTela01 {
 
     @FXML
     private Button AcoesLeitor;
+    @FXML
+    private Button relatorioButton;
 
     @FXML
     private Button SairButton;
@@ -94,6 +96,37 @@ public class AdmTela01 {
             controller.setStage(stage);
 
 
+
+
+            stage.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void relatorioButtonAction(ActionEvent event) {
+        this.OpenRelatorio("Relatorio.fxml");
+    }
+
+
+    private void OpenRelatorio(String url) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            URL xmlURL = getClass().getResource(url);
+            loader.setLocation(xmlURL);
+
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent);
+
+            Stage stage = new Stage();
+            stage.setTitle("Relatorio");
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.initModality(Modality.APPLICATION_MODAL); // Define a modalidade da janela
+
+            Relatorio controller = loader.getController();
+            controller.setStage(stage);
 
 
             stage.showAndWait();

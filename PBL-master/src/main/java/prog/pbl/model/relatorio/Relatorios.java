@@ -36,10 +36,10 @@ public class Relatorios implements Serializable {
      */
     public String getQntLivros(){
         if (qntLivros != null) {
-            return "O total de livros é:" + this.qntLivros.toString();
+            return this.qntLivros.toString();
         }
         else {
-            return "O total de livros é: 0";
+            return "0";
         }
     }
 
@@ -57,9 +57,9 @@ public class Relatorios implements Serializable {
                 }
                 else if(emprestimo.getPrazoFinal().getDia() > data.getDia() && emprestimo.getPrazoFinal().getMes() < data.getMes());
             }
-            return "Total de livros atrasados: "+this.qntLivrosAtrasados.toString();
+            return this.qntLivrosAtrasados.toString();
         } catch (Exception e) {
-            return ("Não há valores para retorno");
+            return ("0");
         }
     }
 
@@ -68,7 +68,7 @@ public class Relatorios implements Serializable {
      * @return a quantidade de livros emprestados
      */
     public String getQntLivroEmprestados(){
-        return "Total de livros emprestados: "+qntLivrosEmprestados.toString();
+        return qntLivrosEmprestados.toString();
     }
 
     /**
