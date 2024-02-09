@@ -15,5 +15,6 @@ senha 123
 
 Bug, se criar um novo leitor ele empresta um livro ja emprestado
 bug, a quantidade de livros está bugada
+bug, Relatorio só atualiza quando o programa fecha
 
 
