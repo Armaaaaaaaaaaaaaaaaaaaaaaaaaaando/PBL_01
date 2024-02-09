@@ -1,8 +1,3 @@
-Tá dando exceção na criação do objeto do administrador
-favor analisar...
-
-
-
 
 Login adm
 35820368045
@@ -17,7 +12,8 @@ Login Leitor
 33601777037
 senha 123
 
-Quando pegar no pbl novamente, analise o metodo de pesquisa
-pois está bugando, pense com calma e decida oq utilizará
-como metodo de pesquisa
+
+Bug, se criar um novo leitor ele empresta um livro ja emprestado
+bug, a quantidade de livros está bugada
+
 

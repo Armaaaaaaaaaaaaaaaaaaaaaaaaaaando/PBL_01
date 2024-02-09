@@ -45,6 +45,10 @@ public class AnaliseLivro {
     @FXML
     private Button pegarEmprestado;
 
+    @FXML
+    private Label taemprestado;
+
+
     private Stage stage;
     private Leitor leitor;
     private Livro livro;
@@ -70,9 +74,15 @@ public class AnaliseLivro {
         this.quantidade.setText(Integer.toString(livro.getQuantidade()));
         this.quantidadepesquisa.setText(Integer.toString(livro.getQntDeBuscas()));
         this.quantidadeemprestimo.setText(Integer.toString(livro.getQntDeEmprestimos()));
-        this.editora.setText(this.editora.getText());
+        this.editora.setText(livro.getEditora());
         this.leitor = leitor;
         this.livro = livro;
+        if(livro.getQntDeEmprestimos()>0){
+            this.taemprestado.setText("Ta emprestado");
+        }
+        else{
+            this.taemprestado.setText("Nao ta emprestado");
+        }
     }
     @FXML
     void pegarEmprestadoButton(ActionEvent event) throws EmprestimoException {

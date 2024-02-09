@@ -42,6 +42,8 @@ public class AnaliseUsuario {
 
     @FXML
     private TextField nomeText;
+    @FXML
+    private Button unblock;
 
     @FXML
     private TextField senhaText;
@@ -52,6 +54,8 @@ public class AnaliseUsuario {
     public static ImDiskLeitorDao leitorDao = new ImDiskLeitorDao();
     private List<Leitor> lista = new LinkedList<>();
     private Stage stage;
+    @FXML
+    private Button blockButton;
 
 
 
@@ -99,7 +103,6 @@ public class AnaliseUsuario {
     @FXML
     void ExcluirButtonAction(ActionEvent event) throws LeitorException {
         int i = this.tabela.getSelectionModel().getSelectedIndex();
-        System.out.println(i);
         if(i >= 0){
             this.leitorDao.delete(leitores.get(i));
             this.leitores.remove(i);
@@ -140,5 +143,45 @@ public class AnaliseUsuario {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    @FXML
+    void blockButtonAction(ActionEvent event) throws LeitorException {
+        int i = this.tabela.getSelectionModel().getSelectedIndex();
+        if(i >= 0){
+            if(leitorDao.findById(leitores.get(i).getId()).isBloqueio() != true){
+                Leitor novo = leitorDao.findById(leitores.get(i).getId());
+                novo.setBloqueio(true);
+                leitorDao.Update(novo,leitores.get(i));
+                leitores.remove(i);
+                leitores.add(novo);
+
+                this.error.setText("Usuario bloqueado!");
+            }
+            else{
+                this.error.setText("Usuario já bloqueado!");
+            }
+
+        }
+    }
+
+    @FXML
+    void unblockACTION(ActionEvent event) throws LeitorException {
+        int i = this.tabela.getSelectionModel().getSelectedIndex();
+        if(i >= 0){
+            if(leitorDao.findById(leitores.get(i).getId()).isBloqueio() == true){
+                Leitor novo = leitorDao.findById(leitores.get(i).getId());
+                novo.setBloqueio(false);
+                leitorDao.Update(novo,leitores.get(i));
+                leitores.remove(i);
+                leitores.add(novo);
+
+                this.error.setText("Usuario desbloqueado!");
+            }
+            else{
+                this.error.setText("Usuario já desbloqueado!");
+            }
+
+        }
     }
 }
