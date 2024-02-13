@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: royalblue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prog.pbl.LeitorTela01">
    <children>
       <Label layoutX="124.0" layoutY="27.0" text="Bem vindo, caro(a) leitor!">
@@ -17,6 +16,6 @@
       <Button fx:id="verificaButton" layoutX="248.0" layoutY="137.0" mnemonicParsing="false" onAction="#verificaButtonAction" style="-fx-background-color: gray;" text="Verificar livro" />
       <Button fx:id="emprestimoButton" layoutX="248.0" layoutY="200.0" mnemonicParsing="false" onAction="#emprestimoButtonAction" style="-fx-background-color: gray;" text="Emprestimos" />
       <Button fx:id="SairButton" layoutX="21.0" layoutY="354.0" mnemonicParsing="false" onAction="#SairButtonAction" style="-fx-background-color: gray;" text="Sair" />
-      <Button layoutX="269.0" layoutY="262.0" mnemonicParsing="false" style="-fx-background-color: gray;" text="Unused" />
+      <Button fx:id="reservasButton" layoutX="248.0" layoutY="260.0" mnemonicParsing="false" onAction="#reservasButtonAction" prefHeight="24.0" prefWidth="104.0" style="-fx-background-color: gray;" text="Reservas" />
    </children>
 </AnchorPane>

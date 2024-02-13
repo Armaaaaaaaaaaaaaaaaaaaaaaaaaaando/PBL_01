@@ -24,6 +24,8 @@ public class LeitorTela01 {
 
     @FXML
     private Button verificaButton;
+    @FXML
+    private Button reservasButton;
     private Stage stage;
     private Leitor leitor;
 
@@ -100,5 +102,10 @@ public class LeitorTela01 {
         } catch (EmprestimoException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void reservasButtonAction(ActionEvent event) {
+
     }
 }

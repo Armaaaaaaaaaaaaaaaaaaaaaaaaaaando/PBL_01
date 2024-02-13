@@ -170,12 +170,11 @@ public class Emprestimo implements Serializable {
     public void renovacaoEmprestimo(String isbn, String id) throws EmprestimoException {
 
         try {
-            if (this.leitor.getId() == id && this.livro.getIsbn() == isbn) {
+            if (this.leitor.getId().equals(id) && this.livro.getIsbn().equals(isbn)) {
                 if (!this.leitor.isBloqueio() && this.leitor.getDiasRestantesMulta() == 0) {
                     if (MasterDao.getFiladeReservaDao().findById(isbn).getReservas().isEmpty() && this.renovacoes < 2) {
                         this.prazoFinal.addDia(7);
                         this.renovacoes++;
-
                     }
                 }
                 else if (renovacoes >= 2){

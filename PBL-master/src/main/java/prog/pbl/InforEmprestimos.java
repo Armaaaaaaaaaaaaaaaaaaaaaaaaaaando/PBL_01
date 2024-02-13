@@ -89,8 +89,18 @@ public class InforEmprestimos {
     }
 
     @FXML
-    void renovarButtonAction(ActionEvent event) {
+    void renovarButtonAction(ActionEvent event) throws EmprestimoException {
+        int i = this.tabela.getSelectionModel().getSelectedIndex();
+        if(i >= 0){
+            for(int j = 0;j <= lista.size();j++){
+                if(lista.get(j).getLivro().getNome().equals(emprestimos.get(i).getNome())){
 
+                    lista.get(j).renovacaoEmprestimo(lista.get(j).getLivro().getIsbn(),lista.get(j).getLeitor().getId());
+                    System.out.println(lista.get(j).getPrazoFinal());
+
+                }
+            }
+        }
     }
 
     @FXML

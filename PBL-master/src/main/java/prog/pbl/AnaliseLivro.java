@@ -7,7 +7,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import prog.pbl.LibraryException.emprestimoException.EmprestimoException;
 import prog.pbl.dao.emprestimo.ImDiskEmprestimoDao;
+import prog.pbl.dao.emprestimo.ImDiskFilaDeReservaDao;
 import prog.pbl.model.emprestimo.Emprestimo;
+import prog.pbl.model.emprestimo.FilaDeReserva;
 import prog.pbl.model.estoque.Livro;
 import prog.pbl.model.usuarios.Leitor;
 
@@ -44,9 +46,13 @@ public class AnaliseLivro {
 
     @FXML
     private Button pegarEmprestado;
+    @FXML
+    private Label ReservaMessage;
 
     @FXML
     private Label taemprestado;
+    @FXML
+    private Button reservaButton;
 
 
     private Stage stage;
@@ -55,6 +61,7 @@ public class AnaliseLivro {
     @FXML
     private Label emprestado;
     public static ImDiskEmprestimoDao emprestimoDao = new ImDiskEmprestimoDao();
+    public static ImDiskFilaDeReservaDao reservaDao = new ImDiskFilaDeReservaDao();
 
     @FXML
     void voltarButtonAction(ActionEvent event) {
@@ -83,6 +90,9 @@ public class AnaliseLivro {
         else{
             this.taemprestado.setText("Nao ta emprestado");
         }
+
+
+        System.out.println(reservaDao.findAll().get(0).getReservas());
     }
     @FXML
     void pegarEmprestadoButton(ActionEvent event) throws EmprestimoException {
@@ -95,6 +105,30 @@ public class AnaliseLivro {
         }catch (Exception e){
             this.emprestado.setText("Erro ao emprestar!");
         }
+
+    }
+
+    @FXML
+    void reservaButtonAction(ActionEvent event) {
+        System.out.println(reservaDao.findAll());
+        try{
+            if(reservaDao.findById(livro.getIsbn()).getReservas().isEmpty()){
+                reservaDao.findById(livro.getIsbn()).addOnReservas(leitor);
+                FilaDeReserva novo = reservaDao.findById(livro.getIsbn());
+                reservaDao.Update(novo,reservaDao.findById(livro.getIsbn()));
+
+            }
+            else {
+                FilaDeReserva reserva = new FilaDeReserva(livro.getIsbn());
+                reserva.addOnReservas(leitor);
+                reservaDao.save(reserva);
+            }
+            this.ReservaMessage.setText("Reservado com sucesso!");
+        }
+        catch (Exception e){
+            this.ReservaMessage.setText("Erro ao reservar!");
+        }
+
 
     }
 
