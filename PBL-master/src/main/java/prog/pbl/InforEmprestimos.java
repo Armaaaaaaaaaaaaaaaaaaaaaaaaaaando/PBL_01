@@ -54,7 +54,7 @@ public class InforEmprestimos {
 
 
 
-        TableColumn nome = new TableColumn("Nome");
+        TableColumn nome = new TableColumn("Titulo");
 
         nome.setCellValueFactory(new PropertyValueFactory<Livro,String>("nome"));
 
@@ -73,7 +73,6 @@ public class InforEmprestimos {
         System.out.println(emprestimoDao.findAll());
         System.out.println(emprestimoDao.findEmprestimosAtivosPorUsuario(leitor.getId()));
 
-        //System.out.println(emprestimoDao.findEmprestimosAtivosPorUsuario(leitor.getId()));
     }
 
     @FXML

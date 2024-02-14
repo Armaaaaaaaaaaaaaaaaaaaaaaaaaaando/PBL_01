@@ -106,6 +106,31 @@ public class LeitorTela01 {
 
     @FXML
     void reservasButtonAction(ActionEvent event) {
+        this.Reserva("Reservas.fxml");
+    }
 
+    private void Reserva(String url){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            URL xmlURL = getClass().getResource(url);
+            loader.setLocation(xmlURL);
+
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent);
+
+            Stage stage = new Stage();
+            stage.setTitle("Reservados");
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.initModality(Modality.APPLICATION_MODAL); // Define a modalidade da janela
+
+            Reservas controller = loader.getController();
+            controller.setStage(stage);
+            //controller.setLeitor(leitor);
+
+            stage.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
