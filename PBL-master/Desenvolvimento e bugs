@@ -21,4 +21,6 @@ bug, Relatorio só atualiza quando o programa fecha
 Atualizado dia 13/02
 Para concluir o renovação, precisei adiantar o reserva (Renovação está incompleto, dando erro em classe Emprestimo, linha 175)
 
-Reserva está sendo feita, todavia, ainda falta mostrar informações sobre a reserva
+
+ATUALIZAÇÃO 15/02
+problema na hora de retirar da reserva
