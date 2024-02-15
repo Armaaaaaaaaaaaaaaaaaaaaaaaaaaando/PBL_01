@@ -17,5 +17,6 @@
       <Button fx:id="renovarButton" layoutX="152.0" layoutY="253.0" mnemonicParsing="false" onAction="#renovarButtonAction" style="-fx-background-color: gray;" text="Renovar" />
       <Button fx:id="analiseButton" layoutX="372.0" layoutY="253.0" mnemonicParsing="false" onAction="#analiseButtonAction" style="-fx-background-color: gray;" text="Analise" />
       <Button fx:id="voltarButton" layoutX="14.0" layoutY="353.0" mnemonicParsing="false" onAction="#voltarButtonAcrion" style="-fx-background-color: gray;" text="Voltar" />
+      <Button fx:id="devolverButton" layoutX="262.0" layoutY="253.0" mnemonicParsing="false" onAction="#devolverButtonAction" style="-fx-background-color: gray;" text="Devolver" />
    </children>
 </AnchorPane>

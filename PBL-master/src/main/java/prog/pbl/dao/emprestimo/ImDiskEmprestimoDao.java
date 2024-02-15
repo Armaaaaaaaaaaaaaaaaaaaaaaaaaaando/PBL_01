@@ -34,6 +34,7 @@ public class ImDiskEmprestimoDao implements EmprestimoDao{
     @Override
     public void save(Emprestimo obj) throws EmprestimoException {
 
+
         if (obj.getLeitor().getNumEmprestimos() > 0 && !obj.getLeitor().isBloqueio() && obj.getLeitor().getDiasRestantesMulta() == 0) {
 
             if (!emprestimos.containsKey(obj.getId())) {

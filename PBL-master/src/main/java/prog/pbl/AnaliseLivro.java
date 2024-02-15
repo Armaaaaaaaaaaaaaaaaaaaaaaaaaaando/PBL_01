@@ -6,12 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import prog.pbl.LibraryException.emprestimoException.EmprestimoException;
+import prog.pbl.LibraryException.emprestimoException.ReservarException;
 import prog.pbl.dao.emprestimo.ImDiskEmprestimoDao;
 import prog.pbl.dao.emprestimo.ImDiskFilaDeReservaDao;
 import prog.pbl.model.emprestimo.Emprestimo;
 import prog.pbl.model.emprestimo.FilaDeReserva;
 import prog.pbl.model.estoque.Livro;
 import prog.pbl.model.usuarios.Leitor;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class AnaliseLivro {
     @FXML
@@ -63,6 +67,7 @@ public class AnaliseLivro {
     public static ImDiskEmprestimoDao emprestimoDao = new ImDiskEmprestimoDao();
     public static ImDiskFilaDeReservaDao reservaDao = new ImDiskFilaDeReservaDao();
 
+    private List<FilaDeReserva> Todas_as_filas;
     @FXML
     void voltarButtonAction(ActionEvent event) {
         this.stage.close();
@@ -90,9 +95,7 @@ public class AnaliseLivro {
         else{
             this.taemprestado.setText("Nao ta emprestado");
         }
-
-
-        System.out.println(reservaDao.findAll().get(0).getReservas());
+        System.out.println(emprestimoDao.findAll());
     }
     @FXML
     void pegarEmprestadoButton(ActionEvent event) throws EmprestimoException {
@@ -109,16 +112,17 @@ public class AnaliseLivro {
     }
 
     @FXML
-    void reservaButtonAction(ActionEvent event) {
+    void reservaButtonAction(ActionEvent event) throws ReservarException {
         System.out.println(reservaDao.findAll());
         try{
-            if(reservaDao.findById(livro.getIsbn()).getReservas().isEmpty()){
-                reservaDao.findById(livro.getIsbn()).addOnReservas(leitor);
-                FilaDeReserva novo = reservaDao.findById(livro.getIsbn());
-                reservaDao.Update(novo,reservaDao.findById(livro.getIsbn()));
-
-            }
-            else {
+            try{
+                FilaDeReserva fila;
+                fila = reservaDao.findById(livro.getIsbn());
+                if(fila.getReservas().isEmpty()){
+                    fila.addOnReservas(leitor);
+                    reservaDao.Update(fila,reservaDao.findById(livro.getIsbn()));
+                }
+            }catch (Exception j){
                 FilaDeReserva reserva = new FilaDeReserva(livro.getIsbn());
                 reserva.addOnReservas(leitor);
                 reservaDao.save(reserva);

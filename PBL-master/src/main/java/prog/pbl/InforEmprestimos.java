@@ -43,6 +43,8 @@ public class InforEmprestimos {
 
     @FXML
     private Button voltarButton;
+    @FXML
+    private Button devolverButton;
 
     @FXML
     void initialize() throws EmprestimoException {
@@ -132,6 +134,24 @@ public class InforEmprestimos {
             stage.showAndWait();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void devolverButtonAction(ActionEvent event) throws EmprestimoException {
+        int i = this.tabela.getSelectionModel().getSelectedIndex();
+        if(i >= 0){
+            for (Emprestimo emprestimo : lista) {
+                if (emprestimo.getLeitor().getId().equals(leitor.getId())) {
+                    emprestimo.setDevolvido(true);
+                    emprestimos.remove(emprestimo);
+                    emprestimoDao.delete(emprestimo);
+                    System.out.println("Devolvido");
+                }
+            }
+
+
+
         }
     }
 }
