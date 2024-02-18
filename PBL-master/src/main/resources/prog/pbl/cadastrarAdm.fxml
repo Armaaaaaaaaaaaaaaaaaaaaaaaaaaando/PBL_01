@@ -87,7 +87,7 @@
                         <Insets left="140.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="EntrarButton" mnemonicParsing="false" onAction="#EntrarButtonAction" style="-fx-background-color: gray;" text="Entrar">
+                  <Button fx:id="EntrarButton" mnemonicParsing="false" onAction="#EntrarButtonAction" style="-fx-background-color: gray;" text="Salvar">
                      <HBox.margin>
                         <Insets left="180.0" top="30.0" />
                      </HBox.margin>

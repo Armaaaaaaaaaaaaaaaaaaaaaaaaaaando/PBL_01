@@ -90,10 +90,10 @@ public class AnaliseLivro {
         this.leitor = leitor;
         this.livro = livro;
         if(livro.getQntDeEmprestimos()>0){
-            this.taemprestado.setText("Ta emprestado");
+            this.taemprestado.setText("Sim");
         }
         else{
-            this.taemprestado.setText("Nao ta emprestado");
+            this.taemprestado.setText("Nao");
         }
         System.out.println(emprestimoDao.findAll());
     }
@@ -104,9 +104,10 @@ public class AnaliseLivro {
             emprestimoDao.save(emprestimo);
             System.out.println(emprestimoDao.findAll());
             this.emprestado.setText("Emprestimo concedido!");
+            this.setLivro(livro,leitor);
 
         }catch (Exception e){
-            this.emprestado.setText("Erro ao emprestar!");
+            this.emprestado.setText("Impossivel emprestar!");
         }
 
     }
@@ -121,6 +122,7 @@ public class AnaliseLivro {
                 if(fila.getReservas().isEmpty()){
                     fila.addOnReservas(leitor);
                     reservaDao.Update(fila,reservaDao.findById(livro.getIsbn()));
+
                 }
             }catch (Exception j){
                 FilaDeReserva reserva = new FilaDeReserva(livro.getIsbn());
@@ -128,9 +130,10 @@ public class AnaliseLivro {
                 reservaDao.save(reserva);
             }
             this.ReservaMessage.setText("Reservado com sucesso!");
+            this.setLivro(livro,leitor);
         }
         catch (Exception e){
-            this.ReservaMessage.setText("Erro ao reservar!");
+            this.ReservaMessage.setText("Impossivel reservar!");
         }
 
 

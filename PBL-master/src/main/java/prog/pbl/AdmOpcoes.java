@@ -6,11 +6,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+
+import static prog.pbl.cadastrarAdm.dao;
 
 public class AdmOpcoes {
 
@@ -21,42 +25,28 @@ public class AdmOpcoes {
     private Button entrarButton;
 
     @FXML
-    void cadastrarButtonAction(ActionEvent event) {
-        this.OpenCadastro("cadastrarAdm.fxml");
+    private TextField loginTex;
 
-    }
+    @FXML
+    private TextField senhaText;
+    @FXML
+    private Label error;
+
 
     @FXML
     void entrarButtonAction(ActionEvent event) {
-        this.OpenLogin("AdmLogin.fxml");
-    }
-
-    private void OpenCadastro(String url){
         try{
-            FXMLLoader loader = new FXMLLoader();
-            URL xmlURL = getClass().getResource(url);
-            loader.setLocation(xmlURL);
-
-            Parent parent = loader.load();
-            Scene scene = new Scene(parent);
-
-            Stage stage = new Stage();
-            stage.setTitle("Cadastro Administrador");
-            stage.setScene(scene);
-            stage.centerOnScreen();
-            stage.initModality(Modality.APPLICATION_MODAL); // Define a modalidade da janela
-
-            cadastrarAdm controller = loader.getController();
-            controller.setStage(stage);
+            dao.findLogin(this.loginTex.getText(),this.senhaText.getText());
+            this.OpenLogin("AdmTela01.fxml");
+            this.clearAll();
 
 
 
-
-            stage.showAndWait();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        }catch (Exception e){
+            this.error.setText("Preencha os campos adequadamente");
         }
     }
+
 
     private void OpenLogin(String url){
         try{
@@ -68,21 +58,23 @@ public class AdmOpcoes {
             Scene scene = new Scene(parent);
 
             Stage stage = new Stage();
-            stage.setTitle("Login Administrador");
+            stage.setTitle("Central de Administração");
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL); // Define a modalidade da janela
 
-            AdmLogin controller = loader.getController();
+            AdmTela01 controller = loader.getController();
             controller.setStage(stage);
-
-
-
 
             stage.showAndWait();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void clearAll(){
+        this.error.setText("");
+        this.loginTex.clear();
+        this.senhaText.clear();
     }
 
 }

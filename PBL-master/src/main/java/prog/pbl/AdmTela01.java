@@ -29,6 +29,8 @@ public class AdmTela01 {
 
     @FXML
     private Label entrada;
+    @FXML
+    private Button CadastroADM;
 
     @FXML
     void LeitorAction(ActionEvent event) {
@@ -133,5 +135,34 @@ public class AdmTela01 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void OpenCadastroADM(String url) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            URL xmlURL = getClass().getResource(url);
+            loader.setLocation(xmlURL);
+
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent);
+
+            Stage stage = new Stage();
+            stage.setTitle("Relatorio");
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.initModality(Modality.APPLICATION_MODAL); // Define a modalidade da janela
+
+            cadastrarAdm controller = loader.getController();
+            controller.setStage(stage);
+
+
+            stage.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void CadastroADMAction(ActionEvent event) {
+        this.OpenCadastroADM("cadastrarAdm.fxml");
     }
 }

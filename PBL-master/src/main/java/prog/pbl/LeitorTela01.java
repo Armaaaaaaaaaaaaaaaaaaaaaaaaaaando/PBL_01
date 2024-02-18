@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import prog.pbl.LibraryException.emprestimoException.EmprestimoException;
@@ -28,6 +29,9 @@ public class LeitorTela01 {
     private Button reservasButton;
     private Stage stage;
     private Leitor leitor;
+
+    @FXML
+    private Label mensagem;
 
     @FXML
     void SairButtonAction(ActionEvent event) {
@@ -66,6 +70,7 @@ public class LeitorTela01 {
             Pesquisa controller = loader.getController();
             controller.setStage(stage);
             controller.setLeitor(leitor);
+            this.mensagem.setText("");
 
             stage.showAndWait();
         } catch (IOException e) {
@@ -95,12 +100,11 @@ public class LeitorTela01 {
             InforEmprestimos controller = loader.getController();
             controller.setStage(stage);
             controller.setLeitor(leitor);
+            this.mensagem.setText("");
 
             stage.showAndWait();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (EmprestimoException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e){
+            this.mensagem.setText("Não encontramos empréstimos ou reservas associados à sua conta.");
         }
     }
 
@@ -127,10 +131,11 @@ public class LeitorTela01 {
             Reservas controller = loader.getController();
             controller.setStage(stage);
             //controller.setLeitor(leitor);
+            this.mensagem.setText("");
 
             stage.showAndWait();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            this.mensagem.setText("Não encontramos empréstimos ou reservas associados à sua conta.");
         }
     }
 }

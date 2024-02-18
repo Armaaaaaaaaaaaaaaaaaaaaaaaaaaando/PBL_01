@@ -12,7 +12,7 @@ public class MainWindow extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Sistema Biblioteca");
+        stage.setTitle("Bem vindo ao LibraTech!");
         stage.setScene(scene);
         stage.show();
     }
