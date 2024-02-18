@@ -84,6 +84,9 @@ public class LeitorTela01 {
 
     private void inforEmprestimo(String url,Leitor leitor){
         try{
+            System.out.println("emprestimos"+leitor.getEmprestimos());
+            System.out.println("Quantidade"+leitor.getNumEmprestimos());
+
             FXMLLoader loader = new FXMLLoader();
             URL xmlURL = getClass().getResource(url);
             loader.setLocation(xmlURL);
@@ -101,6 +104,7 @@ public class LeitorTela01 {
             controller.setStage(stage);
             controller.setLeitor(leitor);
             this.mensagem.setText("");
+
 
             stage.showAndWait();
         } catch (Exception e){

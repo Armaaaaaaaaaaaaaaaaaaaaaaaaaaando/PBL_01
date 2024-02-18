@@ -152,16 +152,22 @@ public class Pesquisa {
     @FXML
     void analiseButtonAction(ActionEvent event) {
         int i = this.tabela.getSelectionModel().getSelectedIndex();
-        if(i >= 0){
-            try{
-                OpenAnaliseLivro(this.Analisador.get(i),leitor);
-            }catch (Exception e){
+        try{
+            leitor.getId();
+            if(i >= 0){
+                try{
+                    OpenAnaliseLivro(this.Analisador.get(i),leitor);
+                }catch (Exception e){
+                    this.naoencontrado();
+                }
+            }
+            else{
                 this.naoencontrado();
             }
+        }catch (Exception e){
+            this.encontrado.setText("Primeiro, faça seu login");
         }
-        else{
-            this.naoencontrado();
-        }
+
 
     }
 

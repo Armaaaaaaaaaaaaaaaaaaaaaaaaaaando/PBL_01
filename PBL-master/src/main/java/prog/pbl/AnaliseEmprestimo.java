@@ -43,10 +43,6 @@ public class AnaliseEmprestimo {
         this.stage.close();
     }
 
-    @FXML
-    void initialize() {
-
-    }
 
 
     public void setStage(Stage stage) {
@@ -55,7 +51,6 @@ public class AnaliseEmprestimo {
 
     public void setEmprestimo(Emprestimo emprestimo) {
         this.emprestimo = emprestimo;
-
         this.leitorenvolvido.setText(emprestimo.getLeitor().getNome());
         this.livroEmprestado.setText(emprestimo.getLivro().getNome());
         this.dataEmprestimo.setText(emprestimo.getDataEmprestimo().toString());

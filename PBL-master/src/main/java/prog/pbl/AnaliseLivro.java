@@ -95,16 +95,14 @@ public class AnaliseLivro {
         else{
             this.taemprestado.setText("Nao");
         }
-        System.out.println(emprestimoDao.findAll());
     }
     @FXML
     void pegarEmprestadoButton(ActionEvent event) throws EmprestimoException {
         try{
             Emprestimo emprestimo = new Emprestimo(leitor,livro);
             emprestimoDao.save(emprestimo);
-            System.out.println(emprestimoDao.findAll());
             this.emprestado.setText("Emprestimo concedido!");
-            this.setLivro(livro,leitor);
+            //this.setLivro(livro,leitor);
 
         }catch (Exception e){
             this.emprestado.setText("Impossivel emprestar!");

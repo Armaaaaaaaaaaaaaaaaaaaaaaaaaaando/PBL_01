@@ -16,6 +16,7 @@ senha 123
 Bug, se criar um novo leitor ele empresta um livro ja emprestado
 bug, a quantidade de livros está bugada
 bug, Relatorio só atualiza quando o programa fecha
+no relatorio, o disponivel ta bugado
 
 
 Atualizado dia 13/02
@@ -26,5 +27,11 @@ ATUALIZAÇÃO 15/02
 problema na hora de retirar da reserva
 
 
-bugs que descobri:
-Ta reservando pra quem não tem cadastro
+
+
+Problema quando empresta o livro; ele ta botando numEmprestimo do leitor para 0 e nao 1;
+quando devolve o livro, o usuario nao consegue fazer outro emprestimo, o problema está na hora de salvar no dao
+na parte do getnumEmprestimo;]
+
+ou seja, o problema está no numEmprestimo; tente resolve-lo
+

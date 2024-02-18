@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import prog.pbl.LibraryException.emprestimoException.EmprestimoException;
+import prog.pbl.LibraryException.usersexcepitions.LeitorException;
 import prog.pbl.model.emprestimo.Emprestimo;
 import prog.pbl.model.estoque.Livro;
 import prog.pbl.model.usuarios.Leitor;
@@ -24,6 +25,7 @@ import java.net.URL;
 import java.util.List;
 
 import static prog.pbl.AnaliseLivro.emprestimoDao;
+import static prog.pbl.AnaliseUsuario.leitorDao;
 
 public class InforEmprestimos {
     private Stage stage;
@@ -47,9 +49,9 @@ public class InforEmprestimos {
     private Button devolverButton;
 
     @FXML
-    void initialize() throws EmprestimoException {
+    void initialize1() throws EmprestimoException {
         emprestimos = FXCollections.observableArrayList();
-        lista = emprestimoDao.findAll();
+        lista = emprestimoDao.findEmprestimosAtivosPorUsuario(leitor.getId());
         for(int i = 0; i < lista.size();i++){
             emprestimos.add(lista.get(i).getLivro());
         }
@@ -71,10 +73,7 @@ public class InforEmprestimos {
 
     public void setLeitor(Leitor leitor) throws EmprestimoException {
         this.leitor = leitor;
-        System.out.println(leitor.getNome());
-        System.out.println(emprestimoDao.findAll());
-        System.out.println(emprestimoDao.findEmprestimosAtivosPorUsuario(leitor.getId()));
-
+        this.initialize1();
     }
 
     @FXML
@@ -138,18 +137,16 @@ public class InforEmprestimos {
     }
 
     @FXML
-    void devolverButtonAction(ActionEvent event) throws EmprestimoException {
+    void devolverButtonAction(ActionEvent event) throws EmprestimoException, LeitorException {
         int i = this.tabela.getSelectionModel().getSelectedIndex();
         if(i >= 0){
-            for (Emprestimo emprestimo : lista) {
-                if (emprestimo.getLeitor().getId().equals(leitor.getId())) {
-                    emprestimo.setDevolvido(true);
-                    emprestimos.remove(emprestimo);
-                    emprestimoDao.delete(emprestimo);
-                    System.out.println("Devolvido");
+            for(int j = 0; j < lista.size();j++){
+                if(lista.get(j).getLivro().equals(emprestimos.get(i))){
+                    lista.get(j).setDevolvido(true);
+                    emprestimos.remove(j);
+                    emprestimoDao.delete(lista.get(i));
                 }
             }
-
 
 
         }
