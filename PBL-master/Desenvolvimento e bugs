@@ -29,9 +29,10 @@ problema na hora de retirar da reserva
 
 
 
-Problema quando empresta o livro; ele ta botando numEmprestimo do leitor para 0 e nao 1;
+(Problema quando empresta o livro; ele ta botando numEmprestimo do leitor para 0 e nao 1;
 quando devolve o livro, o usuario nao consegue fazer outro emprestimo, o problema está na hora de salvar no dao
 na parte do getnumEmprestimo;]
 
-ou seja, o problema está no numEmprestimo; tente resolve-lo
+ou seja, o problema está no numEmprestimo; tente resolve-lo) Está parcialmente resolvido, pois ele consegue fazer o emprestimo devolvendo, todavia, caso o livro nao
+esteja emprestado, ele consegue pegar mais de 2. Bug ai
 

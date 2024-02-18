@@ -84,8 +84,8 @@ public class LeitorTela01 {
 
     private void inforEmprestimo(String url,Leitor leitor){
         try{
-            System.out.println("emprestimos"+leitor.getEmprestimos());
-            System.out.println("Quantidade"+leitor.getNumEmprestimos());
+            System.out.println("Numero de emprestimos: "+leitor.getNumEmprestimos());
+            System.out.println("Nome do leitor: "+leitor.getNome());
 
             FXMLLoader loader = new FXMLLoader();
             URL xmlURL = getClass().getResource(url);

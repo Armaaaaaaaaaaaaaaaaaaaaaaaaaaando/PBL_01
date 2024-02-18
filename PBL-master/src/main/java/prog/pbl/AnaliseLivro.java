@@ -95,6 +95,11 @@ public class AnaliseLivro {
         else{
             this.taemprestado.setText("Nao");
         }
+
+        if(leitor.getEmprestimos() == null){
+            leitor.setNumEmprestimos(2);
+        }
+
     }
     @FXML
     void pegarEmprestadoButton(ActionEvent event) throws EmprestimoException {
@@ -102,7 +107,7 @@ public class AnaliseLivro {
             Emprestimo emprestimo = new Emprestimo(leitor,livro);
             emprestimoDao.save(emprestimo);
             this.emprestado.setText("Emprestimo concedido!");
-            //this.setLivro(livro,leitor);
+            System.out.println("Numero de emprestimos: "+leitor.getNumEmprestimos());
 
         }catch (Exception e){
             this.emprestado.setText("Impossivel emprestar!");
