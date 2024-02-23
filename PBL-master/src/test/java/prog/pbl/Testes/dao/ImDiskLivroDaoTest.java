@@ -23,7 +23,7 @@ class ImDiskLivroDaoTest {
     void setUp() throws Exception{
 
         FileManeger.generateCache();
-        livro = new Livro("39","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        livro = new Livro("39","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro", 1);
         MasterDao.getLivroDao().save(livro);
         dao = new ImDiskLivroDao();
     }
@@ -53,7 +53,7 @@ class ImDiskLivroDaoTest {
     @Test
     void update() throws Exception{
 
-        Livro livroNovo = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Lula");
+        Livro livroNovo = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Lula",1 );
         MasterDao.getLivroDao().Update(livroNovo,livro);
         assertNotSame(livro, MasterDao.getLivroDao().findById(livroNovo.getIsbn()));
     }

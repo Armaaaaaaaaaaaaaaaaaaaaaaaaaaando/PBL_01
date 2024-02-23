@@ -1,4 +1,4 @@
-package prog.pbl;
+package prog.pbl.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import prog.pbl.LibraryException.estoqueExceptions.LivroException;
 import prog.pbl.model.estoque.Livro;
 import prog.pbl.model.usuarios.Leitor;
@@ -21,9 +20,9 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
-import static prog.pbl.RegistroLivro.livroDao;
 
-public class Pesquisa {
+
+public class Pesquisa {/*
 
     @FXML
     private Button AutorButton;
@@ -217,5 +216,5 @@ public class Pesquisa {
 
     public void setLeitor(Leitor leitor) {
         this.leitor = leitor;
-    }
+    }*/
 }

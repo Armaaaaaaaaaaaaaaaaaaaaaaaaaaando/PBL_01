@@ -1,4 +1,4 @@
-package prog.pbl;
+package prog.pbl.controllers;
 
 
 import javafx.collections.FXCollections;
@@ -24,10 +24,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-import static prog.pbl.AnaliseLivro.emprestimoDao;
-import static prog.pbl.AnaliseUsuario.leitorDao;
+//import static prog.pbl.controllers.AnaliseLivro.emprestimoDao;
 
-public class InforEmprestimos {
+public class InforEmprestimos {/*
     private Stage stage;
     private Leitor leitor;
     @FXML
@@ -150,5 +149,5 @@ public class InforEmprestimos {
 
 
         }
-    }
+    }*/
 }

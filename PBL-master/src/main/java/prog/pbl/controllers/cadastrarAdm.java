@@ -1,4 +1,4 @@
-package prog.pbl;
+package prog.pbl.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

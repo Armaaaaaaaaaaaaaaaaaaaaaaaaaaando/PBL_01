@@ -30,20 +30,25 @@ public class Cpf implements Serializable{
         int digt1 = 0;
         int digt2 = 0;
         String[] vetor = cpf.split("");
-        for(int i =1; i< vetor.length-2; i++) {
-            digt1 += (Integer.parseInt(vetor[i-1]) * i);
+        for(int i = 0; i < vetor.length-2; i++) {
+            digt1 += (Integer.parseInt(vetor[i]) * (vetor.length -1 - i));
         }
-        digt1 = digt1%11;
-        if (digt1 == 10){
+        if (digt1%11 <= 1){
             digt1 = 0;
+        } else{
+            digt1 = 11 - digt1%11;
         }
 
-        for(int i =0; i< vetor.length-1; i++) {
-            digt2 += (Integer.parseInt(vetor[i]) * i);
+
+        for(int i = 0; i < vetor.length-1; i++) {
+            digt2 += (Integer.parseInt(vetor[i]) * (vetor.length - i));
+
         }
-        digt2 = digt2%11;
-        if (digt2 == 10){
+
+        if (digt2%11 <= 1){
             digt2 = 0;
+        } else {
+            digt2 = 11 - digt2%11;
         }
 
         if(digt1 == Integer.parseInt(vetor[9]) && digt2 == Integer.parseInt(vetor[10]))
@@ -59,4 +64,5 @@ public class Cpf implements Serializable{
                 "cpf='" + cpf + '\'' +
                 '}';
     }
+
 }

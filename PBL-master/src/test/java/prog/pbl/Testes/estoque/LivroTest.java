@@ -11,7 +11,7 @@ class LivroTest {
     private Livro l;
     @BeforeEach
     void criar(){
-        l = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        l = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro", 1);
     }
 
     @Test

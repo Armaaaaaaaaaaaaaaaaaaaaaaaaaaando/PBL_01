@@ -10,9 +10,9 @@ import prog.pbl.util.Data;
 
 public class Sistema {
 
-    public static Leitor sessaoAtualLeitor;
-    public static Bibliotecario sessaoAtualBibliotecario;
-    public static Administrador sessaoAtualAdministrador;
+    private static Leitor sessaoAtualLeitor = null;
+    private static Bibliotecario sessaoAtualBibliotecario = null;
+    private static Administrador sessaoAtualAdministrador = null;
 
 
     /**
@@ -108,4 +108,14 @@ public class Sistema {
         Sistema.sessaoAtualLeitor = sessaoAtualLeitor;
     }
 
+    public static Integer currentLogMember() {
+        if (sessaoAtualAdministrador != null) {
+            return 0;
+        } else if (sessaoAtualBibliotecario != null){
+            return 1;
+        } else if (sessaoAtualLeitor != null) {
+            return 2;
+        }
+        return 3;
+    }
 }

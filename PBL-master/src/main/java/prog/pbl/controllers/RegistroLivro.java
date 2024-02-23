@@ -1,4 +1,4 @@
-package prog.pbl;
+package prog.pbl.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class RegistroLivro {
-
+/*
     @FXML
     private TextField anoText;
 
@@ -102,9 +102,9 @@ public class RegistroLivro {
         if(i>=0){
             try{
                 Livro li = new Livro(this.isbnText.getText(),this.autorText.getText(),this.categoriaText.getText(),this.enderecoText.getText(),
-                        this.editoraText.getText(),Integer.parseInt(this.anoText.getText()),this.nomeText.getText());
-                this.livroDao.Update(li,livros.get(i));
-                this.livros.set(i,li);
+                        //this.editoraText.getText(),Integer.parseInt(this.anoText.getText()),this.nomeText.getText(), );
+                //his.livroDao.Update(li,livros.get(i));
+                //this.livros.set(i,li);
                 this.cleanAll();
             }
             catch (Exception e){
@@ -118,7 +118,7 @@ public class RegistroLivro {
     void salvarButtonAction(ActionEvent event) {
         try{
             Livro l = new Livro(this.isbnText.getText(),this.autorText.getText(),this.categoriaText.getText(),this.enderecoText.getText(),
-                    this.editoraText.getText(),Integer.parseInt(this.anoText.getText()),this.nomeText.getText());
+                    this.editoraText.getText(),Integer.parseInt(this.anoText.getText()),this.nomeText.getText(), );
             livroDao.save(l);
             this.livros.addAll(l);
             this.cleanAll();
@@ -147,5 +147,5 @@ public class RegistroLivro {
         this.enderecoText.clear();
         this.isbnText.clear();
         this.nomeText.clear();
-    }
+    }*/
 }

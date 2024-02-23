@@ -1,4 +1,4 @@
-package prog.pbl;
+package prog.pbl.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,9 +17,9 @@ import prog.pbl.model.estoque.Livro;
 
 import java.util.List;
 
-import static prog.pbl.RegistroLivro.livroDao;
 
-public class Reservas {
+
+public class Reservas {/*
 
     @FXML
     private Label exemplo;
@@ -83,5 +83,5 @@ public class Reservas {
 
     public void setStage(Stage stage) {
         this.stage = stage;
-    }
+    }*/
 }

@@ -34,7 +34,7 @@ public class ImMemoryLivroDao implements LivroDao{
 
     @Override
     public void save(Livro obj) throws LivroException {
-        Livro livro = new Livro(obj.getIsbn(), obj.getAutor(), obj.getCategoria(), obj.getEnderecoLivro(), obj.getEditora(), obj.getAnoDePublicacao(), obj.getNome());
+        Livro livro = new Livro(obj.getIsbn(), obj.getAutor(), obj.getCategoria(), obj.getEnderecoLivro(), obj.getEditora(), obj.getAnoDePublicacao(), obj.getNome(), obj.getQuantidade());
 
         if (this.livros.get(livro.getIsbn()) != null) {
             Livro livros = this.livros.get(livro.getIsbn());

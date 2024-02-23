@@ -30,7 +30,6 @@ public class Emprestimo implements Serializable {
         try {
             this.leitor = leitor;
             this.livro = livro;
-            MasterDao.getLivroDao().deleteOnlyOne(this.livro);
             this.dataEmprestimo = new Data();
             this.prazoFinal = new Data(dataEmprestimo.getDia()+7, dataEmprestimo.getMes(), dataEmprestimo.getAno());
             this.devolvido = false;
@@ -39,7 +38,9 @@ public class Emprestimo implements Serializable {
             this.leitor.setNumEmprestimos(leitor.getNumEmprestimos()-1);
             this.dataDevolucao = new Data(0,0,0);
             MasterDao.getLivroDao().deleteOnlyOne(livro);
+            System.out.println();
         } catch (LivroException le) {
+            System.out.println(le.getMessage());
             throw new EmprestimoException(createEmprestimo, null);
         }
     }
@@ -216,4 +217,6 @@ public class Emprestimo implements Serializable {
                 ", renovacoes=" + renovacoes.toString() +
                 '}';
     }
+
+
 }

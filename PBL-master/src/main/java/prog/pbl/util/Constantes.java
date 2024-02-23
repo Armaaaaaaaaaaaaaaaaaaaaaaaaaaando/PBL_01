@@ -18,6 +18,7 @@ public class Constantes implements Serializable {
     public final static String updateLivro = "Impossivel atualizar Livro";
     public final static String createLivro = "Impossivel criar livro";
     public final static String findLivro = "Impossivel encontrar livro";
+    public final static String removeLivroWithZero = "Impossivel remover com quantidade nula";
     public final static String deleteEmprestimo = "Impossivel deletar emprestimo";
     public final static String updateEmprestimo = "Impossivel atualizar emprestimo";
     public final static String createEmprestimo = "Impossivel criar emprestimo";

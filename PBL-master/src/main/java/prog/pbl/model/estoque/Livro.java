@@ -3,10 +3,13 @@ package prog.pbl.model.estoque;
 import prog.pbl.LibraryException.emprestimoException.EmprestimoException;
 import prog.pbl.dao.MasterDao;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /** <p>Classe model para livro</p>*/
 public class Livro implements Serializable {
+    @Serial
+    private static final long  serialVersionUID = -6316329600487015375L;
     private String isbn;
     private String autor;
     private String categoria;
@@ -19,15 +22,17 @@ public class Livro implements Serializable {
 
     /**
      * <p>Construtor da classe Livro</p>
-     * @param isbn <b>String</b>
-     * @param autor <b>String</b>
-     * @param categoria <b>String</b>
-     * @param enderecoLivro <b>String</b>
-     * @param editora <b>String</b>
+     *
+     * @param isbn            <b>String</b>
+     * @param autor           <b>String</b>
+     * @param categoria       <b>String</b>
+     * @param enderecoLivro   <b>String</b>
+     * @param editora         <b>String</b>
      * @param anoDePublicacao <b>Integer</b>
-     * @param nome <b>String</b>
+     * @param nome            <b>String</b>
+     * @param quantidade      <b>Integer</b>
      */
-    public Livro (String isbn, String autor, String categoria,String enderecoLivro, String editora, Integer anoDePublicacao, String nome) {
+    public Livro(String isbn, String autor, String categoria, String enderecoLivro, String editora, Integer anoDePublicacao, String nome, Integer quantidade) {
         this.isbn = isbn;
         this.autor = autor;
         this.categoria = categoria;
@@ -35,7 +40,7 @@ public class Livro implements Serializable {
         this.editora = editora;
         this.anoDePublicacao = anoDePublicacao;
         this.nome = nome;
-        this.quantidade = 1;
+        this.quantidade = quantidade;
         this.qntDeBuscas = 0;
     }
 

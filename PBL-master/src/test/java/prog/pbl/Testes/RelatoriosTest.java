@@ -7,8 +7,6 @@ import prog.pbl.dao.estoque.ImMemoryLivroDao;
 import prog.pbl.model.estoque.Livro;
 import prog.pbl.model.relatorio.Relatorios;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class RelatoriosTest {
 
     private Relatorios rela;
@@ -18,7 +16,7 @@ class RelatoriosTest {
     @BeforeEach
     void criar() throws LivroException {
         rela = new Relatorios();
-        livro = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        livro = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro", 1);
         dao = new ImMemoryLivroDao();
         dao.save(livro);
 

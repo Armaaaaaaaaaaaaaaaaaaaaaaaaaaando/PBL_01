@@ -24,7 +24,7 @@ class ImDiskEmprestimoDaoTest {
 
         leitor = new Leitor("Maike","123","62909475085","UEFS",
                 "75 9 88888888");
-        livro = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        livro = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro", 1);
         MasterDao.getLivroDao().save(livro);
         MasterDao.getLeitorDao().save(leitor);
         emprestimo = new Emprestimo(leitor, livro);
@@ -69,7 +69,7 @@ class ImDiskEmprestimoDaoTest {
     @Test
     void findAll() throws Exception{
         Leitor leitor2 = new Leitor("Armando","123","57130521090","Uefs","0000");
-        Livro livroNovo = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Algum Livro de Java");
+        Livro livroNovo = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Algum Livro de Java", 1);
         Emprestimo emprestimo2 = new Emprestimo(leitor2, livroNovo);
         MasterDao.getEmprestimoDao().save(emprestimo2);
         assertEquals(2, MasterDao.getEmprestimoDao().findAll().size());
