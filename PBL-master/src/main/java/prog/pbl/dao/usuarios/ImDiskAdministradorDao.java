@@ -102,6 +102,8 @@ public class ImDiskAdministradorDao implements AdministradorDao{
             if (administrador.getId().equals(id)){
                 if (administrador.getSenha().equals(senha)){
                     return administrador;
+                } else {
+                    throw new AdministradorException("Senha incorreta", null);
                 }
             }
         }

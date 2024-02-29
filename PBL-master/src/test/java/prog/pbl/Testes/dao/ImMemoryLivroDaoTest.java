@@ -20,7 +20,7 @@ class ImMemoryLivroDaoTest {
 
     @BeforeEach
     void criar() throws Exception{
-        livro = new Livro("39","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        livro = new Livro("39","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro",1 );
         dao = new ImMemoryLivroDao();
 
         MasterDao.getLivroDao().save(livro);
@@ -51,13 +51,13 @@ class ImMemoryLivroDaoTest {
     @Test
     void update() throws LivroException{
         dao.save(livro);
-        Livro livroNovo = new Livro("11","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        Livro livroNovo = new Livro("11","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro", 1);
         dao.Update(livroNovo,livro);
     }
 
     @Test
     void findAll() throws Exception{
-        Livro livroNovo = new Livro("11","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        Livro livroNovo = new Livro("11","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro", 1);
         dao.save(livroNovo);
         assertEquals(2, dao.findAll().size());
     }

@@ -16,7 +16,7 @@ class EstoqueTest {
     @BeforeEach
     void setUp() throws Exception{
         e = new Estoque();
-        l = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro");
+        l = new Livro("12","Mikey","Diversao","endereco","Canaviais",2023,"Bolsonaro", 1);
 
         MasterDao.getLivroDao().save(l);
     }

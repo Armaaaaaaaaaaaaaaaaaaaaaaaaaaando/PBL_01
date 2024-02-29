@@ -22,7 +22,7 @@ class ImMemoryLeitorDaoTest {
         leitor = new Leitor("Maike","123","62909475085","UEFS",
                 "75 9 88888888");
         dao = new ImMemoryLeitorDao();
-        MasterDao.getLivroDao().save(new Livro("1","bla", "horror", "pat", "saraiva",2000,"as aventuras de creitin"));
+        MasterDao.getLivroDao().save(new Livro("1","bla", "horror", "pat", "saraiva",2000,"as aventuras de creitin", 1));
     }
 
     @Test

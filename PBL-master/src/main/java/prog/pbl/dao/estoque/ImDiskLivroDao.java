@@ -40,7 +40,7 @@ public class ImDiskLivroDao implements LivroDao{
 
     @Override
     public void save(Livro obj) throws LivroException {
-        Livro livro = new Livro(obj.getIsbn(), obj.getAutor(), obj.getCategoria(), obj.getEnderecoLivro(), obj.getEditora(), obj.getAnoDePublicacao(), obj.getNome());
+        Livro livro = new Livro(obj.getIsbn(), obj.getAutor(), obj.getCategoria(), obj.getEnderecoLivro(), obj.getEditora(), obj.getAnoDePublicacao(), obj.getNome(), obj.getQuantidade());
 
         if (this.livros.get(livro.getIsbn()) != null) {
             Livro livros = this.livros.get(livro.getIsbn());
@@ -163,6 +163,9 @@ public class ImDiskLivroDao implements LivroDao{
     public void deleteOnlyOne(Livro obj) throws LivroException{
         if (livros.containsKey(obj.getIsbn())){
             Livro livros = this.livros.get(obj.getIsbn());
+            if (livros.getQuantidade() == 0) {
+                throw new LivroException(removeLivroWithZero, livros);
+            }
             livros.setQuantidade(livros.getQuantidade()-1);
             this.livros.remove(obj.getIsbn());
             this.livros.put(livros.getIsbn(), livros);
